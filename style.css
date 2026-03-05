@@ -13,7 +13,25 @@ header {
     align-items: center; 
 }
 
-.logo { font-size: 24px; font-weight: bold; color: #ffcc00; }
+/* --- ESTILOS DEL LOGO EN EL ENCABEZADO --- */
+.logo-contenedor {
+    display: flex;
+    align-items: center; /* Centra la imagen y el texto verticalmente */
+    gap: 15px; /* Separación entre el dibujo y las letras */
+}
+
+.logo-img {
+    height: 50px; /* Controla el alto de tu imagen para que no deforme el menú */
+    width: auto; /* Mantiene la proporción de la imagen original */
+    object-fit: contain;
+}
+
+.logo-texto {
+    color: #ffcc00; /* El color amarillo que tienes en tu captura */
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
 /* Estilos del botón de cotizar en el encabezado */
 .btn-cotizar { 
     background-color: #ffcc00; 
