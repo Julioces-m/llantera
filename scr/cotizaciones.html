@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Cotización | Llantera Express</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">LLANTERA EXPRESS</div>
+        <nav>
+            <a href="index.html" class="link-menu">Inicio</a>
+            <a href="catalogo.html" class="link-menu">Catálogo</a>
+            <a href="#contacto" class="link-menu">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="pagina-cotizacion">
+        <div class="contenedor-formulario">
+            
+            <div class="info-cotizacion">
+                <h2>Solicita tu Cotización</h2>
+                <p>Completa el formulario con los detalles de lo que necesitas. Nuestro equipo de ventas te responderá con los mejores precios y disponibilidad.</p>
+                <ul class="lista-ventajas">
+                    <li>✔️ Atención a flotillas y empresas</li>
+                    <li>✔️ Precios especiales por volumen</li>
+                    <li>✔️ Respuesta en menos de 24 horas</li>
+                </ul>
+            </div>
+
+            <div class="formulario">
+                <form action="#" method="POST">
+                    <div class="grupo-input">
+                        <label for="nombre">Nombre o Empresa *</label>
+                        <input type="text" id="nombre" placeholder="Ej. Juan Pérez / Transportes S.A." required>
+                    </div>
+                    
+                    <div class="fila-inputs">
+                        <div class="grupo-input">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" placeholder="correo@empresa.com" required>
+                        </div>
+                        <div class="grupo-input">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" placeholder="(555) 012-3456" required>
+                        </div>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="llantas">¿Qué necesitas cotizar? *</label>
+                        <textarea id="llantas" rows="4" placeholder="Ej. Requiero cotizar 4 llantas Michelin 205/55 R16, o busco opciones económicas para una Nissan Urvan..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar-form">Enviar Solicitud</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-contenido">
+            <div class="footer-info">
+                <h3>LLANTERA EXPRESS</h3>
+                <p>📍 Av. Principal #123, Pachuca, Hgo.</p>
+                <p>📞 Tel: (555) 012-3456</p>
+                <p>✉️ ventas@llanteraexpress.com</p>
+            </div>
+            <div class="footer-mapa">
+                <h3>Encuéntranos</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119981.38531765103!2d-98.83594830303896!3d20.103551573210464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d109d9369bca93%3A0xcf91a5fbcf6953ed!2sPachuca%20de%20Soto%2C%20Hgo.!5e0!3m2!1ses!2smx!4v1709660000000!5m2!1ses!2smx" width="100%" height="150" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Llantera Express. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,507 @@
+/* --- ESTILOS GENERALES Y HERO --- */
+body { 
+    margin: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+header { 
+    background-color: #1a1a1a; 
+    color: white; 
+    padding: 15px 50px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.logo { font-size: 24px; font-weight: bold; color: #ffcc00; }
+/* Estilos del botón de cotizar en el encabezado */
+.btn-cotizar { 
+    background-color: #ffcc00; 
+    color: #1a1a1a; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease;
+}
+
+.btn-cotizar:hover {
+    background-color: #e6b800; /* Se pone un poco más oscuro al pasar el mouse */
+}
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* --- COMPORTAMIENTO DE LA PÁGINA --- */
+/* Esto hace que el salto a las secciones sea un deslizamiento suave y no de golpe */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Separa los elementos del menú */
+}
+
+/* Letras grises para Catálogo y Contacto */
+.link-menu {
+    color: #a0a0a0; /* Color gris */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse (se ilumina en blanco) */
+.link-menu:hover {
+    color: #ffffff;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+/* --- ESTILOS DE LA CINTA DE OFERTAS --- */
+.cinta-ofertas {
+    background-color: #e60000; /* Rojo que combina con tu botón de búsqueda */
+    color: white;
+    padding: 12px 0;
+    overflow: hidden; /* Oculta el texto que se sale de la pantalla */
+    position: relative;
+    white-space: nowrap; /* Evita que el texto salte a la siguiente línea */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 10; /* Asegura que la sombra se vea sobre el catálogo */
+}
+
+.cinta-track {
+    display: inline-flex;
+    gap: 80px; /* Espacio de separación entre cada anuncio */
+    /* La animación dura 25 segundos, velocidad constante, y se repite infinitamente */
+    animation: scrollCinta 25s linear infinite;
+}
+
+.oferta-item {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Pausar la animación si el usuario pone el mouse encima para leer con calma */
+.cinta-ofertas:hover .cinta-track {
+    animation-play-state: paused;
+}
+
+/* Animación de desplazamiento continuo */
+@keyframes scrollCinta {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+    /* Se mueve exactamente el 50% (el primer grupo) para reiniciar el bucle sin que se note */
+}
+
+.buscador-llantas {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    justify-content: center;
+}
+
+.buscador-llantas select, .buscador-llantas button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buscador-llantas button {
+    background-color: #e60000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- ESTILOS DEL CATÁLOGO (ESTO REPARA LA VISTA) --- */
+.catalogo {
+    padding: 60px 20px;
+    background-color: #f8f9fa; /* Fondo gris claro */
+    color: #333;
+}
+
+.catalogo-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.catalogo-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.catalogo-header p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Sistema de cuadrícula para las tarjetas */
+.grid-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Diseño de cada tarjeta */
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra suave */
+    overflow: hidden; /* Para los bordes redondeados */
+    border: 1px solid #eaeaea;
+    transition: transform 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el ratón */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.imagen-contenedor {
+    position: relative;
+    height: 220px;
+}
+
+.imagen-contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Para que la imagen no se deforme */
+}
+
+/* Etiquetas sobre las imágenes */
+.etiqueta {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.popular { background-color: #0066ff; }
+.premium { background-color: #0052cc; }
+.valor { background-color: #0047b3; }
+
+.contenido-tarjeta {
+    padding: 20px;
+}
+
+.contenido-tarjeta h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+}
+
+.contenido-tarjeta p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    min-height: 45px; /* Altura mínima para alinear los precios */
+}
+
+.precio-accion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eaeaea;
+    padding-top: 15px;
+}
+
+.precio {
+    color: #0066ff;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.btn-detalles {
+    background-color: #0b0f19; /* Botón oscuro como en tu imagen */
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* --- ESTILOS DEL FOOTER --- */
+footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    padding: 40px 20px;
+}
+
+.footer-contenido {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-contenido h3 { color: #ffcc00; margin-bottom: 10px; }
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 30px;
+}
+
+/* --- ESTILOS DE "POR QUÉ ELEGIRNOS" --- */
+.por-que-elegirnos {
+    background-color: #0052cc; /* Color azul adaptado a tu paleta */
+    color: white;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.por-que-header {
+    margin-bottom: 50px;
+}
+
+.por-que-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.por-que-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.grid-ventajas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ventaja {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icono-ventaja {
+    background-color: rgba(255, 255, 255, 0.15); /* Círculo de fondo semitransparente */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.ventaja:hover .icono-ventaja {
+    transform: scale(1.1); /* Efecto de que el icono crece un poco al pasar el mouse */
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.icono-ventaja svg {
+    width: 36px;
+    height: 36px;
+    color: white;
+}
+
+.ventaja h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.ventaja p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin: 0;
+}
+
+/* --- ESTILOS EXCLUSIVOS PARA LA PÁGINA DEL CATÁLOGO --- */
+.pagina-catalogo {
+    padding: 100px 20px 60px 20px; /* Un poco más de espacio arriba porque no hay imagen de fondo (Hero) */
+    background-color: #f8f9fa;
+    min-height: 80vh;
+}
+
+.filtros-catalogo {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Para que se adapte en celulares */
+}
+
+.filtros-catalogo select {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.marca-texto {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- ESTILOS DE LA PÁGINA DE COTIZACIÓN --- */
+.pagina-cotizacion {
+    padding: 80px 20px;
+    background-color: #f8f9fa;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-formulario {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* El formulario es un poquito más ancho que la info */
+    max-width: 1000px;
+    width: 100%;
+    overflow: hidden; /* Mantiene los bordes redondeados */
+}
+
+/* Panel Oscuro (Izquierdo) */
+.info-cotizacion {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 50px 40px;
+}
+
+.info-cotizacion h2 {
+    color: #ffcc00;
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.info-cotizacion p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.lista-ventajas {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.lista-ventajas li {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: #f0f0f0;
+}
+
+/* Panel Blanco (Derecho - Formulario) */
+.formulario {
+    padding: 50px 40px;
+}
+
+.grupo-input {
+    margin-bottom: 20px;
+}
+
+.fila-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.grupo-input input,
+.grupo-input textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit; /* Para que use la misma fuente de la página */
+    box-sizing: border-box; /* Evita que el input se salga del borde */
+    transition: border-color 0.3s;
+}
+
+/* Efecto cuando el usuario está escribiendo */
+.grupo-input input:focus,
+.grupo-input textarea:focus {
+    outline: none;
+    border-color: #0052cc;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+}
+
+.btn-enviar-form {
+    background-color: #e60000;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-enviar-form:hover {
+    background-color: #cc0000;
+}
+
+/* Diseño Responsivo (Para que se acomode en celulares) */
+@media (max-width: 768px) {
+    .contenedor-formulario {
+        grid-template-columns: 1fr; /* Una columna en lugar de dos */
+    }
+    .fila-inputs {
+        grid-template-columns: 1fr; /* Los inputs de correo y tel se apilan */
+    }
+    .info-cotizacion {
+        padding: 40px 20px;
+    }
+    .formulario {
+        padding: 40px 20px;
+    }
+}
